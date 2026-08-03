@@ -48,3 +48,5 @@ class ChatRequest(BaseModel):
 
 class ToolResult(BaseModel):
     status : bool = Field(description="Indicates if the tool execution was successful")
+    message : str = Field(description="The message returned by the tool execution")
+    data : Any | None = Field(description="The data returned by the tool execution, if any")
