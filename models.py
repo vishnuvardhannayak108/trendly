@@ -1,4 +1,4 @@
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from pydantic import BaseModel, Field
 from datetime import datetime,date
 
@@ -17,24 +17,24 @@ class Items(BaseModel):
     qty: int = Field(description="The available quantity of the item")
     price: float = Field(description="The price of the item")
     final_sale: bool = Field(description="Indicates if the item is a final sale item")
-    backorder_eta: datetime = Field(description="The estimated time for backorder items")
-    shipped : bool = Field(description="Indicates if the item has been shipped")
+    backorder_eta: Optional[datetime] = None
+    shipped: Optional[bool] = None
 
 class Orders(BaseModel):
     order_id: str = Field(description="The unique identifier for the order")
     customer_id: str = Field(description="The unique identifier for the customer who placed the order")
     status: str = Field(description="The current status of the order")
     placed_at: datetime = Field(description="The date and time when the order was placed")
-    delivered_at: datetime = Field(description="The date and time when the order was delivered")
-    expected_delivery: datetime = Field(description="The expected delivery date and time for the order")
-    carrier: str = Field(description="The carrier responsible for delivering the order")
-    tracking_number: str = Field(description="The tracking number for the order")
+    delivered_at: Optional[datetime] = None
+    expected_delivery: Optional[datetime] = None
+    carrier: Optional[str] = None
+    tracking_number: Optional[str] = None
     payment_method: str = Field(description="The payment method used for the order")
     shipping_city: str = Field(description="The city where the order is being shipped")
     items: List[Items] = Field(description="A list of items included in the order")
     total : float = Field(description="The total amount for the order")
-    cancelled_at: datetime = Field(description="The date and time when the order was cancelled")
-    refund_status: str = Field(description="The status of the refund for the order")
+    cancelled_at: Optional[datetime] = None
+    refund_status: Optional[str] = None
 
 
 
