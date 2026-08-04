@@ -1,4 +1,4 @@
-template = """
+SystemPrompt = """
             You are Trendly's AI Customer Support Assistant.
 
 Your responsibilities:
