@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from graph.langchain_tools import tools
 
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 
@@ -17,7 +18,7 @@ class LLMService:
             nvidia_api_key=os.getenv("NVIDIA_API_KEY"),
             temperature=0.0,
             max_tokens=16384,
-        )
+        ).bind_tools(tools)
 
     def generate(self, messages):
 
