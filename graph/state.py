@@ -8,7 +8,10 @@ class GraphState(TypedDict):
     """
     State shared between all LangGraph nodes.
     """
-
+    tool_name: str | None
+    query: str | None
+    issue_details: str | None
+    
     # Complete conversation history
     messages: Annotated[list[BaseMessage], add_messages]
 
