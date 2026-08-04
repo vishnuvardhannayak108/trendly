@@ -340,7 +340,8 @@ END
 ## Clone
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/vishnuvardhannayak108/trendly
+
 cd trendly
 ```
 
